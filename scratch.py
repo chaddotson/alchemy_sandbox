@@ -1,18 +1,12 @@
-
-from sqlalchemy import Column, DateTime, String, Integer, ForeignKey, func
-from sqlalchemy.orm import relationship, backref
+from datetime import datetime
+from sqlalchemy import create_engine, Column, DateTime, String, Integer
+from sqlalchemy.event import listen
 from sqlalchemy.ext.declarative import declarative_base
-
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy_utils.types.password import PasswordType
 
 Base = declarative_base()
 
-from sqlalchemy_utils.types.password import PasswordType
-
-from datetime import datetime
-
-from sqlalchemy import create_engine
-from sqlalchemy.event import listen
-from sqlalchemy.orm import sessionmaker
 
 class User(Base):
     __tablename__ = 'users'
